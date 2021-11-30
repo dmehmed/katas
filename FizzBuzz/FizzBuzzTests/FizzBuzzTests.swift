@@ -10,24 +10,47 @@ import XCTest
 
 class FizzBuzzTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    var fizzBuzz: FizzBuzz!
+    
+    override func setUp() {
+        fizzBuzz = FizzBuzz()
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testShouldReturnTheNumberItself() {
+        verifyThat(fizzBuzz.convert(number: 1), output: "1")
+        verifyThat(fizzBuzz.convert(number: 2), output: "2")
+        verifyThat(fizzBuzz.convert(number: 4), output: "4")
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testShouldReturnFizzWhenTheNumberIsDividedByThree() {
+        verifyThat(fizzBuzz.convert(number: 3), output: "Fizz")
+        verifyThat(fizzBuzz.convert(number: 6), output: "Fizz")
+        verifyThat(fizzBuzz.convert(number: 9), output: "Fizz")
+        verifyThat(fizzBuzz.convert(number: 12), output: "Fizz")
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testShouldReturnFizzWhenTheNumberIsDividedByFive() {
+        verifyThat(fizzBuzz.convert(number: 5), output: "Buzz")
+        verifyThat(fizzBuzz.convert(number: 10), output: "Buzz")
+        verifyThat(fizzBuzz.convert(number: 20), output: "Buzz")
+        verifyThat(fizzBuzz.convert(number: 25), output: "Buzz")
     }
+    
+    func testShouldReturnFizzWhenTheNumberIsDividedByThreeAndFive() {
+        verifyThat(fizzBuzz.convert(number: 15), output: "FizzBuzz")
+        verifyThat(fizzBuzz.convert(number: 30), output: "FizzBuzz")
+        verifyThat(fizzBuzz.convert(number: 45), output: "FizzBuzz")
+    }
+    
 
+    func testIsTheNumberPositive() {
+        XCTAssertTrue(fizzBuzz.checkIsTheNumberPositive(1))
+        XCTAssertFalse(fizzBuzz.checkIsTheNumberPositive(0))
+        XCTAssertFalse(fizzBuzz.checkIsTheNumberPositive(-1))
+    }
+    
+    func verifyThat(_ result: String, output: String) {
+        XCTAssertEqual(result, output)
+    }
+    
 }
