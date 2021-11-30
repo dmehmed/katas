@@ -9,8 +9,11 @@ import Foundation
 
 class FizzBuzz {
     
-//    func consoleOutputForNumbers( from, to) -> String
     func convert(number: Int) -> String {
+        
+        if !checkIsTheNumberPositive(number) {
+            return "You need to enter positive number!"
+        }
         
         if number.isDivisible(by: 15) {
             return "FizzBuzz"
@@ -29,7 +32,7 @@ class FizzBuzz {
     }
     
     func checkIsTheNumberPositive(_ number: Int) -> Bool {
-         number > 0
+        number > 0
     }
     
 }

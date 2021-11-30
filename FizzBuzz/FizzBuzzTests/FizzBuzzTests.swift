@@ -9,7 +9,7 @@ import XCTest
 @testable import FizzBuzz
 
 class FizzBuzzTests: XCTestCase {
-
+    
     var fizzBuzz: FizzBuzz!
     
     override func setUp() {
@@ -42,7 +42,11 @@ class FizzBuzzTests: XCTestCase {
         verifyThat(fizzBuzz.convert(number: 45), output: "FizzBuzz")
     }
     
-
+    func testShouldReturnMessageForZeroOrNegativeNumber() {
+        verifyThat(fizzBuzz.convert(number: 0), output: "You need to enter positive number!")
+        verifyThat(fizzBuzz.convert(number: -5), output: "You need to enter positive number!")
+    }
+    
     func testIsTheNumberPositive() {
         XCTAssertTrue(fizzBuzz.checkIsTheNumberPositive(1))
         XCTAssertFalse(fizzBuzz.checkIsTheNumberPositive(0))
