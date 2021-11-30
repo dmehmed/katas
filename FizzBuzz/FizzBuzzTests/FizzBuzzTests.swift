@@ -60,6 +60,16 @@ class FizzBuzzTests: XCTestCase {
         verifyThat(fizzBuzz.consoleOutputForNumbers(from: 1, to: 15), output: "1\n2\nFizz\n4\nBuzz\nFizz\n7\n8\nFizz\nBuzz\n11\nFizz\n13\n14\nFizzBuzz")
     }
     
+    func testConsoleOutputShouldReturnMessageForFirstNumberGreaterThanSecond() {
+        verifyThat(fizzBuzz.consoleOutputForNumbers(from: 4, to: 1), output: "You need to enter valid range of numbers with second number greater than first number!")
+        verifyThat(fizzBuzz.consoleOutputForNumbers(from: 10, to: 3), output: "You need to enter valid range of numbers with second number greater than first number!")
+    }
+    
+    func testConsoleOutputShouldReturnOneMessageForZeroOrNegativeNumbersInRange() {
+        verifyThat(fizzBuzz.consoleOutputForNumbers(from: -1, to: 3), output: "You need to enter range of positive numbers!")
+        verifyThat(fizzBuzz.consoleOutputForNumbers(from: -6, to: -1), output: "You need to enter range of positive numbers!")
+    }
+    
     func verifyThat(_ result: String, output: String) {
         XCTAssertEqual(result, output)
     }
