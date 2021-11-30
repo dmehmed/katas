@@ -53,6 +53,13 @@ class FizzBuzzTests: XCTestCase {
         XCTAssertFalse(fizzBuzz.checkIsTheNumberPositive(-1))
     }
     
+    func testConsoleOutputForCorrectRangeOfNumbers() {
+        verifyThat(fizzBuzz.consoleOutputForNumbers(from: 1, to: 2), output: "1\n2")
+        verifyThat(fizzBuzz.consoleOutputForNumbers(from: 7, to: 8), output: "7\n8")
+        verifyThat(fizzBuzz.consoleOutputForNumbers(from: 1, to: 3), output: "1\n2\nFizz")
+        verifyThat(fizzBuzz.consoleOutputForNumbers(from: 1, to: 15), output: "1\n2\nFizz\n4\nBuzz\nFizz\n7\n8\nFizz\nBuzz\n11\nFizz\n13\n14\nFizzBuzz")
+    }
+    
     func verifyThat(_ result: String, output: String) {
         XCTAssertEqual(result, output)
     }

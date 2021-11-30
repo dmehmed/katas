@@ -9,6 +9,23 @@ import Foundation
 
 class FizzBuzz {
     
+    func consoleOutputForNumbers(from: Int, to: Int) -> String {
+        
+        var resultString = ""
+        
+        for number in from...to {
+            
+            resultString += convert(number: number)
+            
+            if number != to {
+                resultString += "\n"
+            }
+            
+        }
+        
+        return resultString
+    }
+    
     func convert(number: Int) -> String {
         
         if !checkIsTheNumberPositive(number) {
