@@ -67,6 +67,15 @@ class RomanNumeralsTests: XCTestCase {
         verify(136, result: "CXXXVI")
     }
     
+    func testCornerCases() {
+        verify(4, result: "IV")
+        verify(944, result: "CMXLIV")
+    }
+    
+    func testAcceptanceCriterias() {
+//        verify(294, result: "CCXCIV")
+    }
+    
     private func verify(
         _ number: Int,
         result: String,

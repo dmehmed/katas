@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "RomanNumerals.convert(_:):RomanNumerals.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "romanNumbers.keys.reversed()">
+            </PersistentString>
+            <PersistentString
+               value = "romanNumbers.keys">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
