@@ -73,7 +73,12 @@ class RomanNumeralsTests: XCTestCase {
     }
     
     func testAcceptanceCriterias() {
-        //        verify(294, result: "CCXCIV")
+        verify(4, result: "IV")
+        verify(9, result: "IX")
+        verify(29, result: "XXIX")
+        verify(80, result: "LXXX")
+        verify(294, result: "CCXCIV")
+        verify(2019, result: "MMXIX")
     }
     
     private func verify(
