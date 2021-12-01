@@ -11,19 +11,17 @@ class StringCalculator {
     
     func add(string numbers: String) -> Int {
         
-        if numbers == "3" {
-            return 3
+        var sum = 0
+        
+        for numberString in numbers.components(separatedBy: ",") {
+            
+            if let number = Int(numberString) {
+                sum += number
+            }
+            
         }
         
-        if numbers == "2" {
-            return 2
-        }
-        
-        if numbers == "1" {
-            return 1
-        }
-        
-        return 0
+        return sum
     }
     
 }

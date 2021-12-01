@@ -26,6 +26,10 @@ class StringCalculatorTests: XCTestCase {
         verify("3", result: 3)
     }
     
+    func testAddNumbersWithTwoNumbersInString() {
+        verify("1,2", result: 3)
+    }
+    
     private func verify(
         _ input: String,
         result: Int,
