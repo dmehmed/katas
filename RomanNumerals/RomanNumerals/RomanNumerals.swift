@@ -14,6 +14,11 @@ class RomanNumerals {
         var result = ""
         var localNumber = number
         
+        if localNumber / 50 != 0 {
+            result += String(repeating:"L", count: localNumber / 50)
+            localNumber -= (localNumber / 50) * 50
+        }
+        
         if localNumber / 10 != 0 {
             result += String(repeating:"X", count: localNumber / 10)
             localNumber -= (localNumber / 10) * 10
