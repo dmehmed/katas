@@ -9,4 +9,8 @@ import Foundation
 
 class StringCalculator {
     
+    func add(string numbers: String) -> Int {
+        return 0
+    }
+    
 }

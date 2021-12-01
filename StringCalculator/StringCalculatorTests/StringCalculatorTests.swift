@@ -9,5 +9,10 @@ import XCTest
 @testable import StringCalculator
 
 class StringCalculatorTests: XCTestCase {
-
+    
+    func testAddEmptyString() {
+        let stringCalculator = StringCalculator()
+        XCTAssertEqual(stringCalculator.add(string: ""), 0)
+    }
+    
 }
