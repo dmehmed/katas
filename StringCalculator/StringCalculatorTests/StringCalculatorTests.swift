@@ -37,6 +37,11 @@ class StringCalculatorTests: XCTestCase {
         verify("1,2,11,19,0,1,1,1,1,1,1,1,1,1", result: 42)
     }
     
+    func testAddNumbersWithNewlineInString() {
+        verify("1\n2,3", result: 6)
+        verify("1\n2,3,4\n5", result: 15)
+    }
+    
     private func verify(
         _ input: String,
         result: Int,

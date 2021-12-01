@@ -13,7 +13,7 @@ class StringCalculator {
         
         var sum = 0
         
-        for numberString in numbers.components(separatedBy: ",") {
+        for numberString in numbers.components(separatedBy: [",", "\n"]) {
             
             if let number = Int(numberString) {
                 sum += number
