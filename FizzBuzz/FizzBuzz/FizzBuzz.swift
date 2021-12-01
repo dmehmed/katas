@@ -9,37 +9,17 @@ import Foundation
 
 class FizzBuzz {
     
-    func consoleOutputForNumbers(from fromNumber: Int, to toNumber: Int) -> String {
+    func consoleOutputForNumbers(range: ClosedRange<Int>) -> String {
         
-        if fromNumber > toNumber {
-            return "You need to enter valid range of numbers with second number greater than first number!"
-        }
-        
-        if !checkIsTheNumberPositive(fromNumber) {
+        if !checkIsTheNumberPositive(range.first!) {
             return "You need to enter range of positive numbers!"
         }
         
-        var resultString = ""
+        return range.reduce("") { $0 + "\(convert(number: $1))\n" }
         
-        for number in fromNumber...toNumber {
-            
-            resultString += convert(number: number)
-            
-            if number != toNumber {
-                resultString += "\n"
-            }
-            
-        }
-        
-        return resultString
     }
     
     func convert(number: Int) -> String {
-        
-        // MARK: - Ask if this should be in upper func
-        if !checkIsTheNumberPositive(number) {
-            return "You need to enter positive number!"
-        }
         
         if number.isDivisible(by: 15) {
             return "FizzBuzz"
@@ -57,7 +37,7 @@ class FizzBuzz {
         
     }
     
-    func checkIsTheNumberPositive(_ number: Int) -> Bool {
+    private func checkIsTheNumberPositive(_ number: Int) -> Bool {
         number > 0
     }
     

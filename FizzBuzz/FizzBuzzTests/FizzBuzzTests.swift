@@ -42,32 +42,16 @@ class FizzBuzzTests: XCTestCase {
         verifyThat(fizzBuzz.convert(number: 45), output: "FizzBuzz")
     }
     
-    func testShouldReturnMessageForZeroOrNegativeNumber() {
-        verifyThat(fizzBuzz.convert(number: 0), output: "You need to enter positive number!")
-        verifyThat(fizzBuzz.convert(number: -5), output: "You need to enter positive number!")
-    }
-    
-    func testIsTheNumberPositive() {
-        XCTAssertTrue(fizzBuzz.checkIsTheNumberPositive(1))
-        XCTAssertFalse(fizzBuzz.checkIsTheNumberPositive(0))
-        XCTAssertFalse(fizzBuzz.checkIsTheNumberPositive(-1))
-    }
-    
     func testConsoleOutputForCorrectRangeOfNumbers() {
-        verifyThat(fizzBuzz.consoleOutputForNumbers(from: 1, to: 2), output: "1\n2")
-        verifyThat(fizzBuzz.consoleOutputForNumbers(from: 7, to: 8), output: "7\n8")
-        verifyThat(fizzBuzz.consoleOutputForNumbers(from: 1, to: 3), output: "1\n2\nFizz")
-        verifyThat(fizzBuzz.consoleOutputForNumbers(from: 1, to: 15), output: "1\n2\nFizz\n4\nBuzz\nFizz\n7\n8\nFizz\nBuzz\n11\nFizz\n13\n14\nFizzBuzz")
-    }
-    
-    func testConsoleOutputShouldReturnMessageForFirstNumberGreaterThanSecond() {
-        verifyThat(fizzBuzz.consoleOutputForNumbers(from: 4, to: 1), output: "You need to enter valid range of numbers with second number greater than first number!")
-        verifyThat(fizzBuzz.consoleOutputForNumbers(from: 10, to: 3), output: "You need to enter valid range of numbers with second number greater than first number!")
+        verifyThat(fizzBuzz.consoleOutputForNumbers(range: 1...2), output: "1\n2\n")
+        verifyThat(fizzBuzz.consoleOutputForNumbers(range: 7...8), output: "7\n8\n")
+        verifyThat(fizzBuzz.consoleOutputForNumbers(range: 1...3), output: "1\n2\nFizz\n")
+        verifyThat(fizzBuzz.consoleOutputForNumbers(range: 1...15), output: "1\n2\nFizz\n4\nBuzz\nFizz\n7\n8\nFizz\nBuzz\n11\nFizz\n13\n14\nFizzBuzz\n")
     }
     
     func testConsoleOutputShouldReturnOneMessageForZeroOrNegativeNumbersInRange() {
-        verifyThat(fizzBuzz.consoleOutputForNumbers(from: -1, to: 3), output: "You need to enter range of positive numbers!")
-        verifyThat(fizzBuzz.consoleOutputForNumbers(from: -6, to: -1), output: "You need to enter range of positive numbers!")
+        verifyThat(fizzBuzz.consoleOutputForNumbers(range: -1...3), output: "You need to enter range of positive numbers!")
+        verifyThat(fizzBuzz.consoleOutputForNumbers(range: -6...(-1)), output: "You need to enter range of positive numbers!")
     }
     
     func verifyThat(_ result: String, output: String) {
