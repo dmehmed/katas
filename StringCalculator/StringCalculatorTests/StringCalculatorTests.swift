@@ -28,6 +28,10 @@ class StringCalculatorTests: XCTestCase {
         verify("2", result: 2)
     }
     
+    func testAddNumbersWithThree() {
+        verify("3", result: 3)
+    }
+    
     private func verify(
         _ input: String,
         result: Int,
