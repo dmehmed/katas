@@ -45,6 +45,14 @@ class RomanNumeralsTests: XCTestCase {
         verify(26, result: "XXVI")
     }
     
+    func testConvertForThirties() {
+        verify(30, result: "XXX")
+        verify(31, result: "XXXI")
+        verify(32, result: "XXXII")
+        verify(35, result: "XXXV")
+        verify(36, result: "XXXVI")
+    }
+    
     private func verify(
         _ number: Int,
         result: String,
