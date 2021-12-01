@@ -38,6 +38,11 @@ class RomanNumeralsTests: XCTestCase {
     
     func testConvertTwenties() {
         verify(20, result: "XX")
+        verify(21, result: "XXI")
+        verify(22, result: "XXII")
+        verify(23, result: "XXIII")
+        verify(25, result: "XXV")
+        verify(26, result: "XXVI")
     }
     
     private func verify(
