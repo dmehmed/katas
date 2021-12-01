@@ -20,4 +20,9 @@ class StringCalculatorTests: XCTestCase {
         XCTAssertEqual(stringCalculator.add(string: "1"), 1)
     }
     
+    func testAddNumbersWithTwo() {
+        let stringCalculator = StringCalculator()
+        XCTAssertEqual(stringCalculator.add(string: "2"), 2)
+    }
+    
 }

@@ -11,6 +11,10 @@ class StringCalculator {
     
     func add(string numbers: String) -> Int {
         
+        if numbers == "2" {
+            return 2
+        }
+        
         if numbers == "1" {
             return 1
         }
