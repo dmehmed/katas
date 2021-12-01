@@ -10,9 +10,14 @@ import XCTest
 
 class StringCalculatorTests: XCTestCase {
     
-    func testAddEmptyString() {
+    func testAddNumbersWithEmptyString() {
         let stringCalculator = StringCalculator()
         XCTAssertEqual(stringCalculator.add(string: ""), 0)
+    }
+    
+    func testAddNumbersWithOne() {
+        let stringCalculator = StringCalculator()
+        XCTAssertEqual(stringCalculator.add(string: "1"), 1)
     }
     
 }
