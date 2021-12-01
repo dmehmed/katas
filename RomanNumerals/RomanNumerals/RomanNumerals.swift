@@ -28,7 +28,7 @@ class RomanNumerals {
         var result = ""
         var localNumber = number
         //refactor
-        for romanNumber in romanNumbers.keys.sorted().reversed() {
+        for romanNumber in getSortedReversedRomanNumbersKeys() {
             
             while localNumber >= romanNumber {
                 result += getRomanSymbol(for: romanNumber)
@@ -39,6 +39,10 @@ class RomanNumerals {
         
         return result
         
+    }
+    
+    private func getSortedReversedRomanNumbersKeys() -> [Int] {
+        romanNumbers.keys.sorted().reversed()
     }
     
     private func getRomanSymbol(for romanNumber: Int) -> String {
