@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum RomanSymbols: Int {
+enum RomanNumbers: Int, CaseIterable {
     case I = 1
     case V = 5
     case X = 10
@@ -46,25 +46,23 @@ class RomanNumerals {
         var result = ""
         var localNumber = number
         
-        if localNumber / RomanSymbols.L.rawValue != 0 {
-            result += String(repeating:RomanSymbols.L.stringValue,
-                             count: localNumber / RomanSymbols.L.rawValue)
-            localNumber -= (localNumber / RomanSymbols.L.rawValue) * RomanSymbols.L.rawValue
-        }
+        var romanNumbers = RomanNumbers.allCases
         
-        if localNumber / RomanSymbols.X.rawValue != 0 {
-            result += String(repeating:RomanSymbols.X.stringValue,
-                             count: localNumber / RomanSymbols.X.rawValue)
-            localNumber -= (localNumber / RomanSymbols.X.rawValue) * RomanSymbols.X.rawValue
+        while localNumber > 0 {
+            
+            if let romanSymbol = romanNumbers.last?.stringValue,
+               let divider = romanNumbers.last?.rawValue,
+               localNumber / divider != 0 {
+                
+                result += String(repeating: romanSymbol,
+                                 count: localNumber / divider)
+                localNumber -= ( localNumber / divider ) * divider
+                
+            }
+            
+            romanNumbers.removeLast()
+            
         }
-        
-        if localNumber >= RomanSymbols.V.rawValue {
-            localNumber -= RomanSymbols.V.rawValue
-            result += RomanSymbols.V.stringValue
-        }
-        
-        result += String(repeating:RomanSymbols.I.stringValue,
-                         count: localNumber)
         
         return result
         
