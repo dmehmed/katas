@@ -7,6 +7,38 @@
 
 import Foundation
 
+enum RomanSymbols: Int {
+    case I = 1
+    case V = 5
+    case X = 10
+    case L = 50
+    case C = 100
+    case D = 500
+    case M = 1000
+    
+    var stringValue: String {
+        
+        switch self {
+        case .I:
+            return "I"
+        case .V:
+            return "V"
+        case .X:
+            return "X"
+        case .L:
+            return "L"
+        case .C:
+            return "C"
+        case .D:
+            return "D"
+        case .M:
+            return "M"
+        }
+        
+    }
+    
+}
+
 class RomanNumerals {
     
     func convert(_ number: Int) -> String {
@@ -14,22 +46,25 @@ class RomanNumerals {
         var result = ""
         var localNumber = number
         
-        if localNumber / 50 != 0 {
-            result += String(repeating:"L", count: localNumber / 50)
-            localNumber -= (localNumber / 50) * 50
+        if localNumber / RomanSymbols.L.rawValue != 0 {
+            result += String(repeating:RomanSymbols.L.stringValue,
+                             count: localNumber / RomanSymbols.L.rawValue)
+            localNumber -= (localNumber / RomanSymbols.L.rawValue) * RomanSymbols.L.rawValue
         }
         
-        if localNumber / 10 != 0 {
-            result += String(repeating:"X", count: localNumber / 10)
-            localNumber -= (localNumber / 10) * 10
+        if localNumber / RomanSymbols.X.rawValue != 0 {
+            result += String(repeating:RomanSymbols.X.stringValue,
+                             count: localNumber / RomanSymbols.X.rawValue)
+            localNumber -= (localNumber / RomanSymbols.X.rawValue) * RomanSymbols.X.rawValue
         }
         
-        if localNumber >= 5 {
-            localNumber -= 5
-            result += "V"
+        if localNumber >= RomanSymbols.V.rawValue {
+            localNumber -= RomanSymbols.V.rawValue
+            result += RomanSymbols.V.stringValue
         }
         
-        result += String(repeating:"I", count: localNumber)
+        result += String(repeating:RomanSymbols.I.stringValue,
+                         count: localNumber)
         
         return result
         
