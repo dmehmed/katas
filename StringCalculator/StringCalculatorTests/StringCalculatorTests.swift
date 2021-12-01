@@ -10,19 +10,30 @@ import XCTest
 
 class StringCalculatorTests: XCTestCase {
     
+    var stringCalculator: StringCalculator!
+    
+    override func setUp() {
+        stringCalculator = StringCalculator()
+    }
+    
     func testAddNumbersWithEmptyString() {
-        let stringCalculator = StringCalculator()
-        XCTAssertEqual(stringCalculator.add(string: ""), 0)
+        verify("", result: 0)
     }
     
     func testAddNumbersWithOne() {
-        let stringCalculator = StringCalculator()
-        XCTAssertEqual(stringCalculator.add(string: "1"), 1)
+        verify("1", result: 1)
     }
     
     func testAddNumbersWithTwo() {
-        let stringCalculator = StringCalculator()
-        XCTAssertEqual(stringCalculator.add(string: "2"), 2)
+        verify("2", result: 2)
+    }
+    
+    private func verify(
+        _ input: String,
+        result: Int,
+        line: UInt = #line
+    ) {
+        XCTAssertEqual(stringCalculator.add(string: input), result, line: line)
     }
     
 }
