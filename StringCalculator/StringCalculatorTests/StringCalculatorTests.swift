@@ -31,6 +31,12 @@ class StringCalculatorTests: XCTestCase {
         verify("7,9", result: 16)
     }
     
+    func testAddNumbersWithMultipleNumbersInString() {
+        verify("1,2,3,4,5,6,7,8,9", result: 45)
+        verify("10,22,31,49", result: 112)
+        verify("1,2,11,19,0,1,1,1,1,1,1,1,1,1", result: 42)
+    }
+    
     private func verify(
         _ input: String,
         result: Int,
