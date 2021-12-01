@@ -14,6 +14,11 @@ class RomanNumerals {
         var result = ""
         var localNumber = number
         
+        if localNumber >= 20 {
+            localNumber -= 20
+            result += "XX"
+        }
+        
         if localNumber >= 10 {
             localNumber -= 10
             result += "X"
