@@ -31,8 +31,7 @@ class RomanNumerals {
         for romanNumber in romanNumbers.keys.sorted().reversed() {
             
             while localNumber >= romanNumber {
-                //refactor
-                result += romanNumbers[romanNumber] ?? ""
+                result += getRomanSymbol(for: romanNumber)
                 localNumber -= romanNumber
             }
             
@@ -42,6 +41,8 @@ class RomanNumerals {
         
     }
     
-    
+    private func getRomanSymbol(for romanNumber: Int) -> String {
+        romanNumbers[romanNumber] ?? ""
+    }
     
 }
