@@ -61,6 +61,12 @@ class RomanNumeralsTests: XCTestCase {
         verify(56, result: "LVI")
     }
     
+    func testConvertForHundreds() {
+        verify(100, result: "C")
+        verify(101, result: "CI")
+        verify(136, result: "CXXXVI")
+    }
+    
     private func verify(
         _ number: Int,
         result: String,
