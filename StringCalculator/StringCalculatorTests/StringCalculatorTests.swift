@@ -20,15 +20,9 @@ class StringCalculatorTests: XCTestCase {
         verify("", result: 0)
     }
     
-    func testAddNumbersWithOne() {
+    func testAddNumbersWithOneNumberInString() {
         verify("1", result: 1)
-    }
-    
-    func testAddNumbersWithTwo() {
         verify("2", result: 2)
-    }
-    
-    func testAddNumbersWithThree() {
         verify("3", result: 3)
     }
     
