@@ -10,18 +10,34 @@ import XCTest
 
 class LeapYearTests: XCTestCase {
     
+    private var leapYear: LeapYear!
+    
+    override func setUp() {
+        leapYear = LeapYear()
+    }
+    
     func testIsLeapYearWithYearNotDivisibleByFour() {
-        let leapYear = LeapYear()
-        XCTAssertFalse(leapYear.isLeapYear(year: 1997))
-        XCTAssertFalse(leapYear.isLeapYear(year: 2001))
+        verifyFalse(1997)
+        verifyFalse(2001)
     }
     
     func testIsLeapYearWithYearDivisibleByFour() {
-        let leapYear = LeapYear()
-        XCTAssertTrue(leapYear.isLeapYear(year: 1996))
-        XCTAssertTrue(leapYear.isLeapYear(year: 1992))
+        verifyTrue(1996)
+        verifyTrue(1992)
     }
     
+    private func verifyTrue(
+        _ input: Int,
+        line: UInt = #line
+    ) {
+        XCTAssertTrue(leapYear.isLeapYear(year: input))
+    }
     
+    private func verifyFalse(
+        _ input: Int,
+        line: UInt = #line
+    ) {
+        XCTAssertFalse(leapYear.isLeapYear(year: input))
+    }
     
 }
