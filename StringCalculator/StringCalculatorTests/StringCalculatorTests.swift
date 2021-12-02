@@ -60,6 +60,10 @@ class StringCalculatorTests: XCTestCase {
         verify("1001,2", result: 2)
     }
     
+    func testAddNumbersWithArbitraryLengthSeparators() {
+        verify("//[***]\n1***2***3", result: 6)
+    }
+    
     private func verify(
         _ input: String,
         result: Int,
