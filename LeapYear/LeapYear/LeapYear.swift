@@ -11,7 +11,7 @@ class LeapYear {
     
     func isLeapYear(year: Int) -> Bool {
         
-        if year == 1996 || year == 1992 {
+        if year % 4 == 0 {
             return true
         }
         
