@@ -23,7 +23,9 @@ class StringCalculator {
         
         let separators = CharacterSet(charactersIn: separatorsString)
         
-        let numbersArray = numbersInput.components(separatedBy: separators).compactMap() { Int($0) }
+        let numbersArray = numbersInput.components(separatedBy: separators).compactMap() {
+            Int($0)
+        }
         
         return numbersArray.reduce(0) { $0 + $1 }
     }
