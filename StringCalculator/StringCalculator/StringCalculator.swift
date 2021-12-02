@@ -13,17 +13,21 @@ enum StringCalculatorError: Error {
 
 class StringCalculator {
     
-    var separatorsString = ",\n"
-    var numbersInput = ""
-    var negativeNumbers: [Int] = []
+    private static let NEW_LINE = "\n"
+    private static let COMMA = ","
+    private static let TWO_SLASHES = "//"
+    private static let UPPER_NUMBER_BOUND = 1000
+    
+    private var separatorsString = ",\n"
+    private var negativeNumbers: [Int] = []
     
     func add(string numbersString: String) throws -> Int {
         
-        numbersInput = numbersString
+        var numbersInput = numbersString
         
-        if hasCustomSeparator() {
-            separatorsString += getCustomSeparator()
-            numbersInput = getNumbersInputWithoutCustomSeparator()
+        if hasCustomSeparator(fromString: numbersInput) {
+            separatorsString += getCustomSeparator(fromString: numbersInput)
+            numbersInput = getNumbersInputWithoutCustomSeparator(fromString: numbersInput)
         }
         
         let separators = CharacterSet(charactersIn: separatorsString)
@@ -35,22 +39,22 @@ class StringCalculator {
         return numbersArray.reduce(0) { $0 + $1 }
     }
     
-    private func hasCustomSeparator() -> Bool {
-        numbersInput.contains("//")
+    private func hasCustomSeparator(fromString string: String) -> Bool {
+        string.contains(StringCalculator.TWO_SLASHES)
     }
     
-    private func getCustomSeparator() -> String {
+    private func getCustomSeparator(fromString string: String) -> String {
         
-        if let firstInputLine = numbersInput.components(separatedBy: "\n").first {
-            return firstInputLine.components(separatedBy: "//").last ?? ""
+        if let firstInputLine = string.components(separatedBy: StringCalculator.NEW_LINE).first {
+            return firstInputLine.components(separatedBy: StringCalculator.TWO_SLASHES).last ?? ""
         }
         
         return ""
         
     }
     
-    private func getNumbersInputWithoutCustomSeparator() -> String {
-        numbersInput.replacingOccurrences(of: "//\(getCustomSeparator())\n", with: "")
+    private func getNumbersInputWithoutCustomSeparator(fromString string: String) -> String {
+        string.replacingOccurrences(of: "\(StringCalculator.TWO_SLASHES)\(getCustomSeparator(fromString: string))\(StringCalculator.NEW_LINE)", with: "")
     }
     
     private func getNumber(fromString string: String) throws -> Int {
@@ -62,7 +66,7 @@ class StringCalculator {
                 throw StringCalculatorError.NegativeNumbersNotAllowed
             }
             
-            return number > 1000 ? 0 : number
+            return number > StringCalculator.UPPER_NUMBER_BOUND ? 0 : number
             
         }
         
