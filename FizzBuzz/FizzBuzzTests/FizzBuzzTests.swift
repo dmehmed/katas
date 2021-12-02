@@ -54,7 +54,11 @@ class FizzBuzzTests: XCTestCase {
         verifyThat(fizzBuzz.consoleOutputForNumbers(range: -6...(-1)), output: "You need to enter range of positive numbers!")
     }
     
-    private func verifyThat(_ result: String, output: String) {
+    private func verifyThat(
+        _ result: String,
+        output: String,
+        line: UInt = #line
+    ) {
         XCTAssertEqual(result, output)
     }
     
