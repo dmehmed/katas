@@ -56,6 +56,10 @@ class StringCalculatorTests: XCTestCase {
         
     }
     
+    func testAddNumbersToIgnorNumbersBiggerThanThousand() {
+        verify("1001,2", result: 2)
+    }
+    
     private func verify(
         _ input: String,
         result: Int,

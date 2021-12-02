@@ -62,7 +62,7 @@ class StringCalculator {
                 throw StringCalculatorError.NegativeNumbersNotAllowed
             }
             
-            return number
+            return number > 1000 ? 0 : number
             
         }
         
