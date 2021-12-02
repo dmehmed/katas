@@ -11,17 +11,13 @@ class StringCalculator {
     
     func add(string numbers: String) -> Int {
         
-        var sum = 0
+        let separatorsString = ",\n"
         
-        for numberString in numbers.components(separatedBy: [",", "\n"]) {
-            
-            if let number = Int(numberString) {
-                sum += number
-            }
-            
-        }
+        let separators = CharacterSet(charactersIn: separatorsString)
         
-        return sum
+        let numbersArray = numbers.components(separatedBy: separators).map() { Int($0) ?? 0 }
+        
+        return numbersArray.reduce(0) { $0 + $1 }
     }
     
 }
