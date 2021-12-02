@@ -7,10 +7,15 @@
 
 import Foundation
 
+enum StringCalculatorError: Error {
+    case NegativeNumbersNotAllowed
+}
+
 class StringCalculator {
     
     var separatorsString = ",\n"
     var numbersInput = ""
+    var negativeNumbers: [Int] = []
     
     func add(string numbersString: String) throws -> Int {
         
@@ -23,8 +28,8 @@ class StringCalculator {
         
         let separators = CharacterSet(charactersIn: separatorsString)
         
-        let numbersArray = numbersInput.components(separatedBy: separators).compactMap() {
-            Int($0)
+        let numbersArray = try numbersInput.components(separatedBy: separators).compactMap() {
+            try getNumber(fromString: $0)
         }
         
         return numbersArray.reduce(0) { $0 + $1 }
@@ -46,6 +51,23 @@ class StringCalculator {
     
     private func getNumbersInputWithoutCustomSeparator() -> String {
         numbersInput.replacingOccurrences(of: "//\(getCustomSeparator())\n", with: "")
+    }
+    
+    private func getNumber(fromString string: String) throws -> Int {
+        
+        if let number = Int(string) {
+            
+            if number < 0 {
+                negativeNumbers.append(number)
+                throw StringCalculatorError.NegativeNumbersNotAllowed
+            }
+            
+            return number
+            
+        }
+        
+        return 0
+        
     }
     
 }

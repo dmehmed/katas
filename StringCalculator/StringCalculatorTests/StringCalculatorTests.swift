@@ -48,6 +48,14 @@ class StringCalculatorTests: XCTestCase {
         verify("//!\n1!2,3!4\n5", result: 15)
     }
     
+    func testAddNumbersWithNegativeNumbersInString() {
+        // think about message of the error?
+        XCTAssertThrowsError(try stringCalculator.add(string: "1,-2,-3")) { error in
+            XCTAssertEqual(error as! StringCalculatorError, StringCalculatorError.NegativeNumbersNotAllowed)
+        }
+        
+    }
+    
     private func verify(
         _ input: String,
         result: Int,
