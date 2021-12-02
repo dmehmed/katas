@@ -25,6 +25,11 @@ class LeapYearTests: XCTestCase {
         verifyTrue(1600)
     }
     
+    func testIsLeapYearWithYearDivisibleByFour() {
+        verifyTrue(1996)
+        verifyTrue(2004)
+    }
+    
     private func verifyTrue(
         _ input: Int,
         line: UInt = #line
