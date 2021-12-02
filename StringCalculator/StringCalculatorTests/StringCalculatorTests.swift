@@ -49,9 +49,9 @@ class StringCalculatorTests: XCTestCase {
     }
     
     func testAddNumbersWithNegativeNumbersInString() {
-        // think about message of the error?
+        
         XCTAssertThrowsError(try stringCalculator.add(string: "1,-2,-3")) { error in
-            XCTAssertEqual(error as! StringCalculatorError, StringCalculatorError.NegativeNumbersNotAllowed)
+            XCTAssertEqual(error as! StringCalculatorError, StringCalculatorError.NegativeNumbersNotAllowed("Error: negatives not allowed: -2 -3"))
         }
         
     }

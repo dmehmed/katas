@@ -7,8 +7,8 @@
 
 import Foundation
 
-enum StringCalculatorError: Error {
-    case NegativeNumbersNotAllowed
+enum StringCalculatorError: Error, Equatable {
+    case NegativeNumbersNotAllowed(String)
 }
 
 class StringCalculator {
@@ -19,7 +19,7 @@ class StringCalculator {
     private static let UPPER_NUMBER_BOUND = 1000
     
     private var separatorsString = ",\n"
-    private var negativeNumbers: [Int] = []
+    private var negativeNumbersString = ""
     
     func add(string numbersString: String) throws -> Int {
         
@@ -32,8 +32,12 @@ class StringCalculator {
         
         let separators = CharacterSet(charactersIn: separatorsString)
         
-        let numbersArray = try numbersInput.components(separatedBy: separators).compactMap() {
-            try getNumber(fromString: $0)
+        let numbersArray = numbersInput.components(separatedBy: separators).compactMap() {
+            getNumber(fromString: $0)
+        }
+        
+        if negativeNumbersString.count > 0 {
+            throw StringCalculatorError.NegativeNumbersNotAllowed("Error: negatives not allowed: \(negativeNumbersString.trimmingCharacters(in: .whitespaces))")
         }
         
         return numbersArray.reduce(0) { $0 + $1 }
@@ -57,13 +61,13 @@ class StringCalculator {
         string.replacingOccurrences(of: "\(StringCalculator.TWO_SLASHES)\(getCustomSeparator(fromString: string))\(StringCalculator.NEW_LINE)", with: "")
     }
     
-    private func getNumber(fromString string: String) throws -> Int {
+    private func getNumber(fromString string: String) -> Int {
         
         if let number = Int(string) {
             
             if number < 0 {
-                negativeNumbers.append(number)
-                throw StringCalculatorError.NegativeNumbersNotAllowed
+                negativeNumbersString += "\(string) "
+                return 0
             }
             
             return number > StringCalculator.UPPER_NUMBER_BOUND ? 0 : number
