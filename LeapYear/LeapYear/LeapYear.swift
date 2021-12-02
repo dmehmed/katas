@@ -9,7 +9,7 @@ import Foundation
 
 class LeapYear {
     
-    func isLeapYear(year string: String) -> Bool {
+    func isLeapYear(year: Int) -> Bool {
         return false
     }
     
