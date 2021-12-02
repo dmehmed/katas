@@ -10,7 +10,7 @@ import XCTest
 
 class FizzBuzzTests: XCTestCase {
     
-    var fizzBuzz: FizzBuzz!
+    private var fizzBuzz: FizzBuzz!
     
     override func setUp() {
         fizzBuzz = FizzBuzz()
@@ -54,7 +54,7 @@ class FizzBuzzTests: XCTestCase {
         verifyThat(fizzBuzz.consoleOutputForNumbers(range: -6...(-1)), output: "You need to enter range of positive numbers!")
     }
     
-    func verifyThat(_ result: String, output: String) {
+    private func verifyThat(_ result: String, output: String) {
         XCTAssertEqual(result, output)
     }
     
