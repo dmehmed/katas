@@ -10,7 +10,7 @@ import XCTest
 
 class RomanNumeralsTests: XCTestCase {
     
-    var romanNumerals: RomanNumerals!
+    private var romanNumerals: RomanNumerals!
     
     override func setUp() {
         romanNumerals = RomanNumerals()
