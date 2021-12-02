@@ -9,7 +9,10 @@ import XCTest
 @testable import LeapYear
 
 class LeapYearTests: XCTestCase {
-
     
-
+    func testIsLeapYearWithYearNotDivisibleByFour() {
+        let leapYear = LeapYear()
+        XCTAssertFalse(leapYear.isLeapYear(year: "1997"))
+    }
+    
 }
