@@ -44,6 +44,7 @@ class StringCalculatorTests: XCTestCase {
     
     func testAddNumbersWithCustomSeparators() {
         verify("//;\n1;2", result: 3)
+        verify("//!\n1!2,3!4\n5", result: 15)
     }
     
     private func verify(
