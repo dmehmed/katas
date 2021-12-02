@@ -10,7 +10,7 @@ import XCTest
 
 class StringCalculatorTests: XCTestCase {
     
-    var stringCalculator: StringCalculator!
+    private var stringCalculator: StringCalculator!
     
     override func setUp() {
         stringCalculator = StringCalculator()
@@ -40,6 +40,7 @@ class StringCalculatorTests: XCTestCase {
     func testAddNumbersWithNewlineInString() {
         verify("1\n2,3", result: 6)
         verify("1\n2,3,4\n5", result: 15)
+        verify("1,\n2", result: 3)
     }
     
     func testAddNumbersWithCustomSeparators() {
@@ -52,7 +53,7 @@ class StringCalculatorTests: XCTestCase {
         result: Int,
         line: UInt = #line
     ) {
-        XCTAssertEqual(stringCalculator.add(string: input), result, line: line)
+        XCTAssertEqual(try stringCalculator.add(string: input), result, line: line)
     }
     
 }

@@ -12,18 +12,18 @@ class StringCalculator {
     var separatorsString = ",\n"
     var numbersInput = ""
     
-    func add(string numbers: String) -> Int {
+    func add(string numbersString: String) throws -> Int {
         
-        numbersInput = numbers
+        numbersInput = numbersString
         
         if hasCustomSeparator() {
             separatorsString += getCustomSeparator()
-            removeCustomSeparatorInput()
+            numbersInput = getNumbersInputWithoutCustomSeparator()
         }
         
         let separators = CharacterSet(charactersIn: separatorsString)
         
-        let numbersArray = numbersInput.components(separatedBy: separators).map() { Int($0) ?? 0 }
+        let numbersArray = numbersInput.components(separatedBy: separators).compactMap() { Int($0) }
         
         return numbersArray.reduce(0) { $0 + $1 }
     }
@@ -33,16 +33,17 @@ class StringCalculator {
     }
     
     private func getCustomSeparator() -> String {
-        getCustomSeparatorInput().components(separatedBy: "//").last ?? ""
+        
+        if let firstInputLine = numbersInput.components(separatedBy: "\n").first {
+            return firstInputLine.components(separatedBy: "//").last ?? ""
+        }
+        
+        return ""
+        
     }
     
-    private func removeCustomSeparatorInput() {
-        numbersInput = numbersInput.replacingOccurrences(of: "\(getCustomSeparatorInput())\n",
-                                                         with: "")
-    }
-    
-    private func getCustomSeparatorInput() -> String {
-        numbersInput.components(separatedBy: "\n")[0]
+    private func getNumbersInputWithoutCustomSeparator() -> String {
+        numbersInput.replacingOccurrences(of: "//\(getCustomSeparator())\n", with: "")
     }
     
 }
