@@ -30,14 +30,14 @@ class LeapYearTests: XCTestCase {
         _ input: Int,
         line: UInt = #line
     ) {
-        XCTAssertTrue(leapYear.isLeapYear(year: input))
+        XCTAssertTrue(leapYear.isLeapYear(year: input), line: line)
     }
     
     private func verifyFalse(
         _ input: Int,
         line: UInt = #line
     ) {
-        XCTAssertFalse(leapYear.isLeapYear(year: input))
+        XCTAssertFalse(leapYear.isLeapYear(year: input), line: line)
     }
     
 }
