@@ -10,14 +10,7 @@ import Foundation
 class LeapYear {
     
     func isLeapYear(year: Int) -> Bool {
-        
-        if year.isDivisible(by: 400)
-            || ( year.isDivisible(by: 4) && !year.isDivisible(by: 100) ) {
-            return true
-        }
-        
-        return false
-        
+        return year.isDivisible(by: 400) || ( year.isDivisible(by: 4) && !year.isDivisible(by: 100) )
     }
     
 }
