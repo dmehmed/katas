@@ -32,6 +32,7 @@ class LeapYearTests: XCTestCase {
     
     func testIsLeapYearWithYearDivisibleByHundredButNotByFourHundred() {
         verifyFalse(1800)
+        verifyFalse(1400)
     }
     
     private func verifyTrue(
