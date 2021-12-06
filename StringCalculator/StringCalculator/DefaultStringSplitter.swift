@@ -28,8 +28,8 @@ class DefaultStringSplitter: StringSplitter {
         var stringToSplit = string
         var customSeparators: [String] = []
         
-        if let separatorsInput = getSeparatorsInput(fromString: string) {
-            customSeparators = getCustomSeparators(fromString: separatorsInput)
+        if let separatorsInput = getSeparatorsInput(from: string) {
+            customSeparators = getCustomSeparators(from: separatorsInput)
             stringToSplit = stringToSplit.replacingOccurrences(of: "\(DefaultStringSplitter.TWO_SLASHES)\(separatorsInput)\(DefaultStringSplitter.NEW_LINE)", with: "")
         }
         
@@ -49,11 +49,20 @@ class DefaultStringSplitter: StringSplitter {
 // MARK: - Helper functions
 extension DefaultStringSplitter {
     
-    private func getSeparatorsInput(fromString string: String) -> String? {
+    private func getSeparatorsInput(from string: String) -> String? {
         
-        if let firstMatch = getFirstMatch(in: string, for: DefaultStringSplitter.SEPARATOR_INPUT_LINE_REGEX),
-           let swiftRange = Range(firstMatch.range(at: 1), in: string) {
-            return String(string[swiftRange])
+        if let firstMatch = getFirstMatch(in: string, for: DefaultStringSplitter.SEPARATOR_INPUT_LINE_REGEX) {
+            return retrieveGroup(from: string, with: firstMatch)
+        }
+        
+        return nil
+        
+    }
+    
+    private func retrieveGroup(from string: String, with result: NSTextCheckingResult) -> String? {
+        
+        if let separatorRange = Range(result.range(at: 1), in: string) {
+            return String(string[separatorRange])
         }
         
         return nil
@@ -61,11 +70,10 @@ extension DefaultStringSplitter {
     }
     
     private func getFirstMatch(in string: String, for pattern: String) -> NSTextCheckingResult? {
-        let regex = try! NSRegularExpression(pattern: pattern)
-        return regex.firstMatch(in: string, options: [], range: NSMakeRange(0, string.count))
+        return (try! NSRegularExpression(pattern: pattern)).firstMatch(in: string, options: [], range: NSMakeRange(0, string.count))
     }
     
-    private func getCustomSeparators(fromString string: String) -> [String] {
+    private func getCustomSeparators(from string: String) -> [String] {
         
         if string.count == 1 {
             return [string]
