@@ -5,7 +5,6 @@
 //  Created by Deniz Mehmed on 1.12.21.
 //
 
-
 enum StringCalculatorError: Error, Equatable {
     case NegativeNumbersNotAllowed(String)
 }
@@ -14,16 +13,16 @@ class StringCalculator {
     
     private static let UPPER_NUMBER_BOUND = 1000
     
-    private var stringSplitter: DefaultStringSplitter?
+    private var stringSplitter: DefaultStringSplitter
     private var negativeNumbersString = ""
     
-    init(withStringSplitter stringSplitter: DefaultStringSplitter) {
+    init(with stringSplitter: DefaultStringSplitter) {
         self.stringSplitter = stringSplitter
     }
     
-    func add(string numbersString: String) throws -> Int {
+    func add(_ numbersString: String) throws -> Int {
         
-        let numbersArray = stringSplitter?.split(numbersString).compactMap() {
+        let numbersArray = stringSplitter.split(numbersString).compactMap() {
             getNumber(fromString: $0)
         }
         
@@ -31,7 +30,7 @@ class StringCalculator {
             throw StringCalculatorError.NegativeNumbersNotAllowed("Error: negatives not allowed: \(negativeNumbersString.trimmingCharacters(in: .whitespaces))")
         }
         
-        return numbersArray?.reduce(0) { $0 + $1 } ?? 0
+        return numbersArray.reduce(0) { $0 + $1 }
         
     }
     

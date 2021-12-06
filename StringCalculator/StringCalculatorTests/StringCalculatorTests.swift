@@ -13,7 +13,7 @@ class StringCalculatorTests: XCTestCase {
     private var stringCalculator: StringCalculator!
     
     override func setUp() {
-        stringCalculator = StringCalculator(withStringSplitter: DefaultStringSplitter())
+        stringCalculator = StringCalculator(with: DefaultStringSplitter())
     }
     
     func testAddNumbersWithEmptyString() {
@@ -50,7 +50,7 @@ class StringCalculatorTests: XCTestCase {
     
     func testAddNumbersWithNegativeNumbersInString() {
         
-        XCTAssertThrowsError(try stringCalculator.add(string: "1,-2,-3")) { error in
+        XCTAssertThrowsError(try stringCalculator.add("1,-2,-3")) { error in
             XCTAssertEqual(error as! StringCalculatorError, StringCalculatorError.NegativeNumbersNotAllowed("Error: negatives not allowed: -2 -3"))
         }
         
@@ -81,7 +81,7 @@ class StringCalculatorTests: XCTestCase {
         result: Int,
         line: UInt = #line
     ) {
-        XCTAssertEqual(try stringCalculator.add(string: input), result, line: line)
+        XCTAssertEqual(try stringCalculator.add(input), result, line: line)
     }
     
 }
