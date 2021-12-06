@@ -5,7 +5,6 @@
 //  Created by Deniz Mehmed on 1.12.21.
 //
 
-import Foundation
 
 enum StringCalculatorError: Error, Equatable {
     case NegativeNumbersNotAllowed(String)

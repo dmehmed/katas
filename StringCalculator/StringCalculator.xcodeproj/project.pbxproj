@@ -12,6 +12,7 @@
 		282E26742757B20700621CBF /* StringCalculator.h in Headers */ = {isa = PBXBuildFile; fileRef = 282E26682757B20700621CBF /* StringCalculator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		282E267E2757B77F00621CBF /* StringCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282E267D2757B77F00621CBF /* StringCalculator.swift */; };
 		282E26A4275DFA3700621CBF /* DefaultStringSplitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282E26A3275DFA3700621CBF /* DefaultStringSplitter.swift */; };
+		282E26A6275E4D0000621CBF /* StringSplitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282E26A5275E4D0000621CBF /* StringSplitter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +32,7 @@
 		282E26722757B20700621CBF /* StringCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringCalculatorTests.swift; sourceTree = "<group>"; };
 		282E267D2757B77F00621CBF /* StringCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringCalculator.swift; sourceTree = "<group>"; };
 		282E26A3275DFA3700621CBF /* DefaultStringSplitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultStringSplitter.swift; sourceTree = "<group>"; };
+		282E26A5275E4D0000621CBF /* StringSplitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringSplitter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 			children = (
 				282E26682757B20700621CBF /* StringCalculator.h */,
 				282E267D2757B77F00621CBF /* StringCalculator.swift */,
+				282E26A5275E4D0000621CBF /* StringSplitter.swift */,
 				282E26A3275DFA3700621CBF /* DefaultStringSplitter.swift */,
 			);
 			path = StringCalculator;
@@ -199,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				282E267E2757B77F00621CBF /* StringCalculator.swift in Sources */,
+				282E26A6275E4D0000621CBF /* StringSplitter.swift in Sources */,
 				282E26A4275DFA3700621CBF /* DefaultStringSplitter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

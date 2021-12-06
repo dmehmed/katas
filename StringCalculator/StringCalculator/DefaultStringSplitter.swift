@@ -5,11 +5,6 @@
 //  Created by Deniz Mehmed on 6.12.21.
 //
 
-import Foundation
-
-protocol StringSplitter {
-    func split(_ string: String) -> [String]
-}
 
 class DefaultStringSplitter: StringSplitter {
     
