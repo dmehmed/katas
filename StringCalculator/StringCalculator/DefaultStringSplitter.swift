@@ -30,7 +30,7 @@ class DefaultStringSplitter: StringSplitter {
         
         if let separatorsInput = getSeparatorsInput(fromString: string) {
             customSeparators = getCustomSeparators(fromString: separatorsInput)
-            stringToSplit = stringToSplit.replacingOccurrences(of: separatorsInput, with: "")
+            stringToSplit = stringToSplit.replacingOccurrences(of: "\(DefaultStringSplitter.TWO_SLASHES)\(separatorsInput)\(DefaultStringSplitter.NEW_LINE)", with: "")
         }
         
         let allSeparators = customSeparators + defaultSeparators
