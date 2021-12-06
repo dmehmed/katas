@@ -17,6 +17,7 @@
 		282E26AA275E574F00621CBF /* NegativeNumberRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282E26A9275E574F00621CBF /* NegativeNumberRule.swift */; };
 		282E26AC275E761E00621CBF /* LargeNumberRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282E26AB275E761D00621CBF /* LargeNumberRule.swift */; };
 		282E26AE275E76D300621CBF /* NegativeNumberRuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282E26AD275E76D300621CBF /* NegativeNumberRuleTests.swift */; };
+		282E26B0275E789600621CBF /* LargeNumberRuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282E26AF275E789600621CBF /* LargeNumberRuleTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		282E26A9275E574F00621CBF /* NegativeNumberRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NegativeNumberRule.swift; sourceTree = "<group>"; };
 		282E26AB275E761D00621CBF /* LargeNumberRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeNumberRule.swift; sourceTree = "<group>"; };
 		282E26AD275E76D300621CBF /* NegativeNumberRuleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NegativeNumberRuleTests.swift; sourceTree = "<group>"; };
+		282E26AF275E789600621CBF /* LargeNumberRuleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeNumberRuleTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				282E26722757B20700621CBF /* StringCalculatorTests.swift */,
 				282E26AD275E76D300621CBF /* NegativeNumberRuleTests.swift */,
+				282E26AF275E789600621CBF /* LargeNumberRuleTests.swift */,
 			);
 			path = StringCalculatorTests;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				282E26732757B20700621CBF /* StringCalculatorTests.swift in Sources */,
+				282E26B0275E789600621CBF /* LargeNumberRuleTests.swift in Sources */,
 				282E26AE275E76D300621CBF /* NegativeNumberRuleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
