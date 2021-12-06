@@ -13,27 +13,18 @@ enum StringCalculatorError: Error, Equatable {
 
 class StringCalculator {
     
-    private static let NEW_LINE = "\n"
-    private static let COMMA = ","
-    private static let TWO_SLASHES = "//"
-    private static let CUSTOM_SEPARATOR_REGEX = "//(.*?)\n"
     private static let UPPER_NUMBER_BOUND = 1000
     
-    private var separatorsString = ",\n"
+    private var stringSplitter: DefaultStringSplitter?
     private var negativeNumbersString = ""
+    
+    init(withStringSplitter stringSplitter: DefaultStringSplitter) {
+        self.stringSplitter = stringSplitter
+    }
     
     func add(string numbersString: String) throws -> Int {
         
-        var numbersInput = numbersString
-        
-        if hasCustomSeparator(fromString: numbersInput) {
-            separatorsString += getCustomSeparator(fromString: numbersInput)
-            numbersInput = getNumbersInputWithoutCustomSeparator(fromString: numbersInput)
-        }
-        
-        let separators = CharacterSet(charactersIn: separatorsString)
-        
-        let numbersArray = numbersInput.components(separatedBy: separators).compactMap() {
+        let numbersArray = stringSplitter?.split(numbersString).compactMap() {
             getNumber(fromString: $0)
         }
         
@@ -41,30 +32,8 @@ class StringCalculator {
             throw StringCalculatorError.NegativeNumbersNotAllowed("Error: negatives not allowed: \(negativeNumbersString.trimmingCharacters(in: .whitespaces))")
         }
         
-        return numbersArray.reduce(0) { $0 + $1 }
-    }
-    
-    private func hasCustomSeparator(fromString string: String) -> Bool {
-        string.contains(StringCalculator.TWO_SLASHES)
-    }
-    
-    private func getCustomSeparator(fromString string: String) -> String {
+        return numbersArray?.reduce(0) { $0 + $1 } ?? 0
         
-        let regex = try! NSRegularExpression(pattern: StringCalculator.CUSTOM_SEPARATOR_REGEX)
-        
-        if let firstMatch = regex.firstMatch(in: string,
-                                             options: [],
-                                             range: NSRange(string.startIndex..., in: string)),
-           let swiftRange = Range(firstMatch.range, in: string) {
-            return String(string[swiftRange])
-        }
-        
-        return ""
-        
-    }
-    
-    private func getNumbersInputWithoutCustomSeparator(fromString string: String) -> String {
-        string.replacingOccurrences(of: "\(StringCalculator.TWO_SLASHES)\(getCustomSeparator(fromString: string))\(StringCalculator.NEW_LINE)", with: "")
     }
     
     private func getNumber(fromString string: String) -> Int {
