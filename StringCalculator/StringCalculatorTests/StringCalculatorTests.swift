@@ -13,7 +13,7 @@ class StringCalculatorTests: XCTestCase {
     private var stringCalculator: StringCalculator!
     
     override func setUp() {
-        stringCalculator = StringCalculator()
+        stringCalculator = StringCalculator(withStringSplitter: DefaultStringSplitter())
     }
     
     func testAddNumbersWithEmptyString() {
