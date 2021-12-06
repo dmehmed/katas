@@ -5,7 +5,6 @@
 //  Created by Deniz Mehmed on 6.12.21.
 //
 
-
 class DefaultStringSplitter: StringSplitter {
     
     private static let NEW_LINE = "\n"
@@ -25,7 +24,7 @@ class DefaultStringSplitter: StringSplitter {
         
         if let separatorsInput = getSeparatorsInput(from: string) {
             customSeparators = getCustomSeparators(from: separatorsInput)
-            stringToSplit = stringToSplit.replacingOccurrences(of: "\(DefaultStringSplitter.TWO_SLASHES)\(separatorsInput)\(DefaultStringSplitter.NEW_LINE)", with: "")
+            stringToSplit = removeSeparatorsInput(from: stringToSplit)
         }
         
         let allSeparators = customSeparators + defaultSeparators
@@ -46,17 +45,17 @@ extension DefaultStringSplitter {
     
     private func getSeparatorsInput(from string: String) -> String? {
         
-        if let firstMatch = getFirstMatch(in: string, for: DefaultStringSplitter.SEPARATOR_INPUT_LINE_REGEX) {
-            return retrieveGroup(from: string, with: firstMatch)
+        guard let firstMatch = getFirstMatch(in: string, for: DefaultStringSplitter.SEPARATOR_INPUT_LINE_REGEX) else {
+            return nil
         }
         
-        return nil
+        return retrieveGroup(from: string, with: firstMatch, resultIndex: 1)
         
     }
     
-    private func retrieveGroup(from string: String, with result: NSTextCheckingResult) -> String? {
+    private func retrieveGroup(from string: String, with result: NSTextCheckingResult, resultIndex: Int) -> String? {
         
-        if let separatorRange = Range(result.range(at: 1), in: string) {
+        if let separatorRange = Range(result.range(at: resultIndex), in: string) {
             return String(string[separatorRange])
         }
         
@@ -77,6 +76,16 @@ extension DefaultStringSplitter {
         return string.components(separatedBy: [DefaultStringSplitter.LEFT_SQUARE_BRACKET, DefaultStringSplitter.RIGHT_SQUARE_BRACKET]).compactMap() {
             $0.isEmpty ? nil : $0
         }
+        
+    }
+    
+    private func removeSeparatorsInput(from string: String) -> String {
+        
+        guard let firstMatch = getFirstMatch(in: string, for: DefaultStringSplitter.SEPARATOR_INPUT_LINE_REGEX) else {
+            return string
+        }
+        
+        return string.replacingOccurrences(of: retrieveGroup(from: string, with: firstMatch, resultIndex: 0) ?? "", with: "")
         
     }
     
