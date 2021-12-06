@@ -13,6 +13,10 @@
 		282E267E2757B77F00621CBF /* StringCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282E267D2757B77F00621CBF /* StringCalculator.swift */; };
 		282E26A4275DFA3700621CBF /* DefaultStringSplitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282E26A3275DFA3700621CBF /* DefaultStringSplitter.swift */; };
 		282E26A6275E4D0000621CBF /* StringSplitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282E26A5275E4D0000621CBF /* StringSplitter.swift */; };
+		282E26A8275E56D300621CBF /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282E26A7275E56D300621CBF /* Rule.swift */; };
+		282E26AA275E574F00621CBF /* NegativeNumberRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282E26A9275E574F00621CBF /* NegativeNumberRule.swift */; };
+		282E26AC275E761E00621CBF /* LargeNumberRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282E26AB275E761D00621CBF /* LargeNumberRule.swift */; };
+		282E26AE275E76D300621CBF /* NegativeNumberRuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282E26AD275E76D300621CBF /* NegativeNumberRuleTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +37,10 @@
 		282E267D2757B77F00621CBF /* StringCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringCalculator.swift; sourceTree = "<group>"; };
 		282E26A3275DFA3700621CBF /* DefaultStringSplitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultStringSplitter.swift; sourceTree = "<group>"; };
 		282E26A5275E4D0000621CBF /* StringSplitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringSplitter.swift; sourceTree = "<group>"; };
+		282E26A7275E56D300621CBF /* Rule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rule.swift; sourceTree = "<group>"; };
+		282E26A9275E574F00621CBF /* NegativeNumberRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NegativeNumberRule.swift; sourceTree = "<group>"; };
+		282E26AB275E761D00621CBF /* LargeNumberRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeNumberRule.swift; sourceTree = "<group>"; };
+		282E26AD275E76D300621CBF /* NegativeNumberRuleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NegativeNumberRuleTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +87,9 @@
 				282E267D2757B77F00621CBF /* StringCalculator.swift */,
 				282E26A5275E4D0000621CBF /* StringSplitter.swift */,
 				282E26A3275DFA3700621CBF /* DefaultStringSplitter.swift */,
+				282E26A7275E56D300621CBF /* Rule.swift */,
+				282E26A9275E574F00621CBF /* NegativeNumberRule.swift */,
+				282E26AB275E761D00621CBF /* LargeNumberRule.swift */,
 			);
 			path = StringCalculator;
 			sourceTree = "<group>";
@@ -87,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				282E26722757B20700621CBF /* StringCalculatorTests.swift */,
+				282E26AD275E76D300621CBF /* NegativeNumberRuleTests.swift */,
 			);
 			path = StringCalculatorTests;
 			sourceTree = "<group>";
@@ -201,9 +213,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				282E26AC275E761E00621CBF /* LargeNumberRule.swift in Sources */,
 				282E267E2757B77F00621CBF /* StringCalculator.swift in Sources */,
+				282E26A8275E56D300621CBF /* Rule.swift in Sources */,
 				282E26A6275E4D0000621CBF /* StringSplitter.swift in Sources */,
 				282E26A4275DFA3700621CBF /* DefaultStringSplitter.swift in Sources */,
+				282E26AA275E574F00621CBF /* NegativeNumberRule.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				282E26732757B20700621CBF /* StringCalculatorTests.swift in Sources */,
+				282E26AE275E76D300621CBF /* NegativeNumberRuleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
