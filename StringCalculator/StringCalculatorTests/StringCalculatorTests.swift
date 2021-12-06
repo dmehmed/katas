@@ -72,6 +72,10 @@ class StringCalculatorTests: XCTestCase {
         verify("//[foo][bar]\n1foo2bar3", result: 6)
     }
     
+    func testAddNumberWithSquareBracketInString() {
+        verify("//[\n1[2[3", result: 6)
+    }
+    
     private func verify(
         _ input: String,
         result: Int,
