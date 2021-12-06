@@ -15,6 +15,11 @@
       </ContextState>
       <ContextState
          contextName = "StringCalculator.getCustomSeparator(fromString:):StringCalculator.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "firstMatch?.replacementString">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
    </ContextStates>
 </VariablesViewState>

@@ -16,6 +16,7 @@ class StringCalculator {
     private static let NEW_LINE = "\n"
     private static let COMMA = ","
     private static let TWO_SLASHES = "//"
+    private static let CUSTOM_SEPARATOR_REGEX = "//(.*?)\n"
     private static let UPPER_NUMBER_BOUND = 1000
     
     private var separatorsString = ",\n"
@@ -49,8 +50,13 @@ class StringCalculator {
     
     private func getCustomSeparator(fromString string: String) -> String {
         
-        if let firstInputLine = string.components(separatedBy: StringCalculator.NEW_LINE).first {
-            return firstInputLine.components(separatedBy: StringCalculator.TWO_SLASHES).last ?? ""
+        let regex = try! NSRegularExpression(pattern: StringCalculator.CUSTOM_SEPARATOR_REGEX)
+        
+        if let firstMatch = regex.firstMatch(in: string,
+                                             options: [],
+                                             range: NSRange(string.startIndex..., in: string)),
+           let swiftRange = Range(firstMatch.range, in: string) {
+            return String(string[swiftRange])
         }
         
         return ""
