@@ -18,6 +18,10 @@
 		282E26AC275E761E00621CBF /* LargeNumberRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282E26AB275E761D00621CBF /* LargeNumberRule.swift */; };
 		282E26AE275E76D300621CBF /* NegativeNumberRuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282E26AD275E76D300621CBF /* NegativeNumberRuleTests.swift */; };
 		282E26B0275E789600621CBF /* LargeNumberRuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282E26AF275E789600621CBF /* LargeNumberRuleTests.swift */; };
+		282E26B2275E792900621CBF /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282E26B1275E792900621CBF /* Validator.swift */; };
+		282E26B4275E7A9700621CBF /* StringCalculatorValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282E26B3275E7A9700621CBF /* StringCalculatorValidator.swift */; };
+		282E26B6275E7C7200621CBF /* StringCalculatorValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282E26B5275E7C7200621CBF /* StringCalculatorValidatorTests.swift */; };
+		282E26B8275E7D5000621CBF /* DefaultStringSplitterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282E26B7275E7D5000621CBF /* DefaultStringSplitterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +47,10 @@
 		282E26AB275E761D00621CBF /* LargeNumberRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeNumberRule.swift; sourceTree = "<group>"; };
 		282E26AD275E76D300621CBF /* NegativeNumberRuleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NegativeNumberRuleTests.swift; sourceTree = "<group>"; };
 		282E26AF275E789600621CBF /* LargeNumberRuleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeNumberRuleTests.swift; sourceTree = "<group>"; };
+		282E26B1275E792900621CBF /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		282E26B3275E7A9700621CBF /* StringCalculatorValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringCalculatorValidator.swift; sourceTree = "<group>"; };
+		282E26B5275E7C7200621CBF /* StringCalculatorValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringCalculatorValidatorTests.swift; sourceTree = "<group>"; };
+		282E26B7275E7D5000621CBF /* DefaultStringSplitterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultStringSplitterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +100,8 @@
 				282E26A7275E56D300621CBF /* Rule.swift */,
 				282E26A9275E574F00621CBF /* NegativeNumberRule.swift */,
 				282E26AB275E761D00621CBF /* LargeNumberRule.swift */,
+				282E26B1275E792900621CBF /* Validator.swift */,
+				282E26B3275E7A9700621CBF /* StringCalculatorValidator.swift */,
 			);
 			path = StringCalculator;
 			sourceTree = "<group>";
@@ -100,8 +110,10 @@
 			isa = PBXGroup;
 			children = (
 				282E26722757B20700621CBF /* StringCalculatorTests.swift */,
+				282E26B7275E7D5000621CBF /* DefaultStringSplitterTests.swift */,
 				282E26AD275E76D300621CBF /* NegativeNumberRuleTests.swift */,
 				282E26AF275E789600621CBF /* LargeNumberRuleTests.swift */,
+				282E26B5275E7C7200621CBF /* StringCalculatorValidatorTests.swift */,
 			);
 			path = StringCalculatorTests;
 			sourceTree = "<group>";
@@ -217,9 +229,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				282E26AC275E761E00621CBF /* LargeNumberRule.swift in Sources */,
+				282E26B4275E7A9700621CBF /* StringCalculatorValidator.swift in Sources */,
 				282E267E2757B77F00621CBF /* StringCalculator.swift in Sources */,
 				282E26A8275E56D300621CBF /* Rule.swift in Sources */,
 				282E26A6275E4D0000621CBF /* StringSplitter.swift in Sources */,
+				282E26B2275E792900621CBF /* Validator.swift in Sources */,
 				282E26A4275DFA3700621CBF /* DefaultStringSplitter.swift in Sources */,
 				282E26AA275E574F00621CBF /* NegativeNumberRule.swift in Sources */,
 			);
@@ -230,8 +244,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				282E26732757B20700621CBF /* StringCalculatorTests.swift in Sources */,
+				282E26B6275E7C7200621CBF /* StringCalculatorValidatorTests.swift in Sources */,
 				282E26B0275E789600621CBF /* LargeNumberRuleTests.swift in Sources */,
 				282E26AE275E76D300621CBF /* NegativeNumberRuleTests.swift in Sources */,
+				282E26B8275E7D5000621CBF /* DefaultStringSplitterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
