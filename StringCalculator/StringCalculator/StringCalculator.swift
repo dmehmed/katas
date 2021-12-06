@@ -11,43 +11,20 @@ enum StringCalculatorError: Error, Equatable {
 
 class StringCalculator {
     
-    private static let UPPER_NUMBER_BOUND = 1000
+    private var stringSplitter: StringSplitter
+    private var validator: Validator
     
-    private var stringSplitter: DefaultStringSplitter
-    private var negativeNumbersString = ""
-    
-    init(with stringSplitter: DefaultStringSplitter) {
+    init(with stringSplitter: StringSplitter, and validator: Validator) {
         self.stringSplitter = stringSplitter
+        self.validator = validator
     }
     
     func add(_ numbersString: String) throws -> Int {
         
-        let numbersArray = stringSplitter.split(numbersString).compactMap() {
-            getNumber(fromString: $0)
+        try stringSplitter.split(numbersString).reduce(0) {
+            let currentStringNumberValue = ( Int($1) ?? 0 )
+            return $0 + (try validator.isValid(currentStringNumberValue) ? currentStringNumberValue : 0)
         }
-        
-        if negativeNumbersString.count > 0 {
-            throw StringCalculatorError.NegativeNumbersNotAllowed("Error: negatives not allowed: \(negativeNumbersString.trimmingCharacters(in: .whitespaces))")
-        }
-        
-        return numbersArray.reduce(0) { $0 + $1 }
-        
-    }
-    
-    private func getNumber(fromString string: String) -> Int {
-        
-        if let number = Int(string) {
-            
-            if number < 0 {
-                negativeNumbersString += "\(string) "
-                return 0
-            }
-            
-            return number > StringCalculator.UPPER_NUMBER_BOUND ? 0 : number
-            
-        }
-        
-        return 0
         
     }
     

@@ -7,8 +7,10 @@
 
 class LargeNumberRule: Rule {
     
+    private static let UPPER_NUMBER_BOUND = 1000
+    
     func isValid(_ value: Int) throws -> Bool {
-        value < 1001
+        value <= LargeNumberRule.UPPER_NUMBER_BOUND
     }
     
 }
