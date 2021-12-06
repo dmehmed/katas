@@ -11,6 +11,7 @@
 		282E26732757B20700621CBF /* StringCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282E26722757B20700621CBF /* StringCalculatorTests.swift */; };
 		282E26742757B20700621CBF /* StringCalculator.h in Headers */ = {isa = PBXBuildFile; fileRef = 282E26682757B20700621CBF /* StringCalculator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		282E267E2757B77F00621CBF /* StringCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282E267D2757B77F00621CBF /* StringCalculator.swift */; };
+		282E26A4275DFA3700621CBF /* DefaultStringSplitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282E26A3275DFA3700621CBF /* DefaultStringSplitter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		282E266D2757B20700621CBF /* StringCalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StringCalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		282E26722757B20700621CBF /* StringCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringCalculatorTests.swift; sourceTree = "<group>"; };
 		282E267D2757B77F00621CBF /* StringCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringCalculator.swift; sourceTree = "<group>"; };
+		282E26A3275DFA3700621CBF /* DefaultStringSplitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultStringSplitter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			children = (
 				282E26682757B20700621CBF /* StringCalculator.h */,
 				282E267D2757B77F00621CBF /* StringCalculator.swift */,
+				282E26A3275DFA3700621CBF /* DefaultStringSplitter.swift */,
 			);
 			path = StringCalculator;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				282E267E2757B77F00621CBF /* StringCalculator.swift in Sources */,
+				282E26A4275DFA3700621CBF /* DefaultStringSplitter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
